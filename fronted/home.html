@@ -1,0 +1,235 @@
+<!-- <?php
+session_start(); 
+include("index.php");
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI Driven Crop Disease Prediction Systemt</title>
+    <link rel="stylesheet" href="home.css">
+    <!-- <style>
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+.form-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.form-container h2 {
+    color: #D91E18;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    background: #D91E18;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background: #a81410;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+}-->
+<style>
+.toggle-form {
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+}
+
+.toggle-form span {
+    color: green;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.toggle-form span:hover {
+    text-decoration: underline;
+}
+
+
+.hidden {
+    display: none;
+}
+.green-box {
+    position: absolute;
+    left: 100px;
+    top: 53%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 745px;
+    background: linear-gradient(135deg,rgb(41, 215, 148), rgb(237, 237, 80));
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    /* border-radius: 10px; */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 80px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+</style> 
+
+</head>
+<body>
+<header>
+        <nav class="navbar">
+            <a href="home.html"><img src="images/logo.jpg" alt="users Logo" style="height: 50px;"/></a>
+            <ul class="nav-items">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Features</a></li>
+            </ul>
+            <button id="loginBtn">Sign In<img src="images/arrow_icon.png"/></button>
+        </nav>
+    </header>
+    
+    <!-- Typing Welcome Message -->
+    <div class="img">
+        <div class="welcome-container">
+            <span id="typingText" class="typing"></span>
+        </div>
+    </div>
+    <div class="green-box">
+        <h1 style="margin-top:50px;">Welcome to AgriGaurd</h1>
+        <h2 style="margin-top:50px;">Digital Infrastructure for:</h2>
+        <p style="margin-top:30px;" id="changingText">Welcome to AgriStack</p>
+    </div>
+
+    <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="c.jpg" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="chatbox-icon.svg" /></button>
+        </div>
+    </div>
+</div>
+
+<div id="popupForm" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+
+        
+        <!-- <div class="form-wrapper">
+            
+            
+            <div class="form-image-container">
+                <img src="login.png" alt="Login Image" class="form-image">
+            </div>
+
+            <div class="form-container"> -->
+                
+                
+                <form method="POST" id="loginForm" class="form" action="backend/home.php">
+                    <h2 style="color:green; margin-left:150px;">Login</h2>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <!-- <label><input type="checkbox" name="remember"> Remember me</label> -->
+                    <input class="button" type="submit" value="Login" name="login">
+                    <!-- <a href="#" class="forgot-password">Forgot password?</a> -->
+                    <p class="toggle-form" style=" margin-left:40px;">Don't have an account? <span onclick="showRegister()">Register here</span></p>
+                </form>
+
+                
+                <form method="POST" id="registerForm" class="form hidden" action="backend/home.php">
+                    <h2 style="color:green; margin-left:150px;">Register</h2>
+                    <input type="text" name="username" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="confirm" placeholder="Confirm Password" required>
+                    <input type="number" name="mobno" placeholder="Mobile Number" required>
+                    <input class="button" type="submit" value="Register" name="register">
+                    <p class="toggle-form" style="margin-left:40px;">Already have an account? <span onclick="showLogin()">Login here</span></p>
+                </form>
+
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<div id="popupMessage" class="popup-message hidden">
+    <div class="popup-message-content">
+        <span class="close-btn" id="closePopupMessage">&times;</span>
+        <p style="color:black;" id="popupMessageText"></p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 AI Driven Crop Disease Prediction System. All rights reserved.</p>
+</footer>
+<script src="/home.js"></script>
+</body>
+</html>

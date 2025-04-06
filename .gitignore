@@ -1,0 +1,11 @@
+# Ignore dataset and database folders
+flask_backend/dataset/
+database/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore common system files
+*.log
+*.tmp
+.DS_Store
